@@ -40,7 +40,7 @@ const Navbar = () => {
                   textDecoration: "none",
                 }}
                 onClick={() => {
-                  window.location.href = "https://main.d1jo1vg9zdi7iy.amplifyapp.com//signup";
+                  window.location.href = "https://main.d1jo1vg9zdi7iy.amplifyapp.com/signup";
                 }}
               >
                 <img
