@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import api from "../api/axios"
 import GeneralContext from "./GeneralContext";
 import "./style/order.css";
 
@@ -8,8 +8,8 @@ const Orders = () => {
   const { refreshKey } = useContext(GeneralContext);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/v1/orders")
+    api
+      .get("/orders")
       .then((res) => setOrders(res.data))
       .catch((err) => console.error("Failed to fetch orders", err));
   }, [refreshKey]); 

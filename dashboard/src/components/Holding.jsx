@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import api from "../api/axios"
 import GeneralContext from "./GeneralContext";
 import "./style/holding.css";
 
@@ -8,8 +8,8 @@ const Holding = () => {
   const { refreshKey } = useContext(GeneralContext);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/v1/AllHoldings")
+    api
+      .get("/AllHoldings")
       .then((res) => {
         setAllHoldings(res.data);
       })

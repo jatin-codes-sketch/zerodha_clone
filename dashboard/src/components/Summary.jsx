@@ -1,6 +1,6 @@
 import "./Summary.css";
 import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import api from "../api/axios"
 import PortfolioChart from "./PortfolioChart";
 import PortfolioDonutChart from "./PortfolioDonutChart";
 import GeneralContext from "./GeneralContext";
@@ -14,15 +14,15 @@ const Summary = () => {
   const { refreshKey } = useContext(GeneralContext);
 
   useEffect(() => {
-  axios
-    .get("http://localhost:5000/api/v1/summary")
+  api
+    .get("/summary")
     .then(res => setSummary(res.data))
     .catch(err => console.log(err));
 }, [refreshKey]);
 
   useEffect(() => {
-  axios
-    .get("http://localhost:5000/api/v1/portfolio-allocation")
+  api
+    .get("/portfolio-allocation")
     .then(res => setAllocation(res.data))
     .catch(err => console.log(err));
 }, []);
