@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: import.meta.env.VITE_API_URL + "/api/v1",
+  baseURL: "https://zerodha-clone-ag7s.onrender.com/api/v1",
   withCredentials: true,
 });
