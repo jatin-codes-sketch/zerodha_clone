@@ -13,25 +13,10 @@ console.log("CORS_ORIGIN:", process.env.CORS_ORIGIN);
 
 const allowedOrigin = process.env.CORS_ORIGIN;
 
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || origin === allowedOrigin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-}));
+console.log("CORS_ORIGIN:", allowedOrigin);
 
-app.options("*", cors({
-  origin: (origin, callback) => {
-    if (!origin || origin === allowedOrigin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+app.use(cors({
+  origin: allowedOrigin,
   credentials: true,
 }));
 
