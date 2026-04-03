@@ -3,7 +3,7 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
-const API_BASE = "http://localhost:5000/api/v1/users";
+const API_BASE = "https://zerodha-clone-ag7s.onrender.com/api/v1/users";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
