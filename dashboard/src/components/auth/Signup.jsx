@@ -4,7 +4,6 @@ import api from "../../api/axios";
 
 const Signup = () => {
 
-  alert(import.meta.env.VITE_API_URL);
 
   const navigate = useNavigate();
 

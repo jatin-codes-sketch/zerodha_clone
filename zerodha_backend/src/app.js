@@ -11,7 +11,7 @@ const app=express()
 
 console.log("CORS_ORIGIN:", process.env.CORS_ORIGIN);
 
-const allowedOrigin = process.env.CORS_ORIGIN;
+const allowedOrigin = "https://main.d1jo1vg9zdi7iy.amplifyapp.com";
 
 console.log("CORS_ORIGIN:", allowedOrigin);
 
