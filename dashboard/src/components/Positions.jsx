@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import api from "../api/axios"
 import GeneralContext from "./GeneralContext";
 import "./style/positions.css";
 
@@ -8,8 +8,8 @@ const Positions = () => {
   const [positions, setPositions] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/v1/AllPositions")
+    api
+      .get("/AllPositions")
       .then((res) => {
         setPositions(res.data);
       })
