@@ -1,6 +1,8 @@
 import express from "express"
 import dotenv from "dotenv"
-dotenv.config()
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 import cors from "cors"
 import cookieParser from "cookie-parser"
 
@@ -9,10 +11,29 @@ const app=express()
 
 console.log("CORS_ORIGIN:", process.env.CORS_ORIGIN);
 
+const allowedOrigin = process.env.CORS_ORIGIN;
+
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
-    credentials:true,
-}))
+  origin: (origin, callback) => {
+    if (!origin || origin === allowedOrigin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
+
+app.options("*", cors({
+  origin: (origin, callback) => {
+    if (!origin || origin === allowedOrigin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
